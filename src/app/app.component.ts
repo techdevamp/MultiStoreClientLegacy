@@ -36,6 +36,10 @@ export class AppComponent {
       }*/
       this.router.navigate([path]);
     }
+    sellMyGrocery(path: any) {
+      
+       this.router.navigate([path]);
+     }
 
     loginScreen() {
       this.router.navigate(['login']);

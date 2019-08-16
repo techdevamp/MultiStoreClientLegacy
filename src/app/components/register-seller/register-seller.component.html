@@ -1,0 +1,45 @@
+<div class="jumbotron"  >
+  <div class="container  login-main" >
+      <div> <alert></alert></div>
+<mat-card class="adminLoginCardBG">
+    <mat-card-header>
+    <mat-card-title>Sign up to Sell with Us</mat-card-title>
+    </mat-card-header>
+    <mat-card-content fxLayout="row" align="middle">  
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" >
+ 
+    <p>
+    <mat-form-field>
+
+        <input type="text" matInput formControlName="userName" placeholder="Username" name="userName"  id="userName" required>
+        </mat-form-field>
+      </p>
+      <p>
+      <mat-form-field>
+
+    <input type="password" matInput formControlName="password" placeholder="Password" name="password"  id="password" required>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field>
+
+  <input type="password" matInput formControlName="confirmPassword" placeholder="Confirm Password" name="confirmPassword"  id="confirmPassword" required>
+  </mat-form-field>
+</p>
+  <p>
+      <mat-form-field>
+    <input type="text" matInput formControlName="email" placeholder="Email" name="email"  id="email" required>
+</mat-form-field>
+</p>
+
+  <mat-card-actions align="middle">
+  <button (click)="register()" mat-raised-button>Register</button>
+  <button (click)="goToLoginPage()" mat-raised-button>Cancel</button>
+  </mat-card-actions>
+
+
+</form>
+</mat-card-content>
+</mat-card>
+</div>
+</div>

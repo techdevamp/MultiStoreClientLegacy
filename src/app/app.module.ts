@@ -17,12 +17,16 @@ import { SwiperModule } from 'ngx-swiper-wrapper';
 import { LoginComponent } from './components/login/login.component';
 import { AlertModule } from './modules/alert/alert.module';
 import { SearchComponent } from './components/search/search.component';
+import { RegisterSellerComponent } from './components/register-seller/register-seller.component';
+import { SellMyGroceryComponent } from './components/sell-my-grocery/sell-my-grocery.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    SearchComponent
+    SearchComponent,
+    RegisterSellerComponent,
+    SellMyGroceryComponent
   ],
   imports: [
     BrowserModule,
