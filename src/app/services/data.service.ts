@@ -6,6 +6,7 @@ import { RegisterUser } from '../models/registerUser';
 import { ApiResponse } from '../models/api.response';
 import { UsersDetails } from '../models/usersDetails';
 import { InterceptorSkipHeader } from '../helpers/jwt.interceptor';
+import { RegisterSeller } from '../models/registerSeller';
 
 
 @Injectable({
@@ -28,6 +29,10 @@ export class DataService {
   createUser(user: RegisterUser): Observable<ApiResponse> {
     const headers = new HttpHeaders().set(InterceptorSkipHeader, '');
     return this.http.post<ApiResponse>(this.baseUrl + '/registeration/registerUser',user,{headers});
+  }
+  registerSeller(user: RegisterSeller): Observable<ApiResponse> {
+    const headers = new HttpHeaders().set(InterceptorSkipHeader, '');
+    return this.http.post<ApiResponse>(this.baseUrl + '/registeration/registerSeller',user,{headers});
   }
   updateUser(user: RegisterUser): Observable<ApiResponse> {
     return this.http.put<ApiResponse>(this.baseUrl + '/userDetails/updateUserDetails', user);

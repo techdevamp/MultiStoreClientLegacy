@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCardModule, MatListModule, MatToolbarModule
+import { MatButtonModule, MatCardModule, MatListModule, MatToolbarModule,MatSelectModule
   , MatInputModule, MatPaginatorModule, MatProgressSpinnerModule,
   MatSortModule, MatTableModule, MatSidenavModule, MatIconModule, MatMenuModule,
   MatDialogModule, MatCheckboxModule, MatGridListModule, MatAutocompleteModule} from '@angular/material';
@@ -19,6 +19,7 @@ import { AlertModule } from './modules/alert/alert.module';
 import { SearchComponent } from './components/search/search.component';
 import { RegisterSellerComponent } from './components/register-seller/register-seller.component';
 import { SellMyGroceryComponent } from './components/sell-my-grocery/sell-my-grocery.component';
+import { AddressComponent } from './components/address/address.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SellMyGroceryComponent } from './components/sell-my-grocery/sell-my-gro
     LoginComponent,
     SearchComponent,
     RegisterSellerComponent,
-    SellMyGroceryComponent
+    SellMyGroceryComponent,
+    AddressComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +54,7 @@ import { SellMyGroceryComponent } from './components/sell-my-grocery/sell-my-gro
     MatMenuModule,
     MatCheckboxModule,
     MatGridListModule,
+    MatSelectModule,
     NgbModule,
     SwiperModule,
     AlertModule,
