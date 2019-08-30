@@ -1,13 +1,8 @@
 import { RegisterUser } from './registerUser';
+import { Address } from './address';
 
-export class RegisterSeller extends RegisterUser
- {
-    bussinessNm: String;
-    addrLn1: string;
-    addrLn2: string;
-    cityNm: string;
-    stateCd: string;
-    zipCd: string;
-    phone: string;
-   
+export class RegisterSeller extends RegisterUser {
+    
+    bussinessNm: string;
+    address: Address;
 }

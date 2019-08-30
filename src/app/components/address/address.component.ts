@@ -8,9 +8,7 @@ import { FormGroup } from '@angular/forms';
 })
 export class AddressComponent implements OnInit {
 
-  @Input('group')
-
-public addressForm: FormGroup;
+  @Input('group') addressForm: FormGroup;
 
 states = ['AL','AK','AS','AZ','AR','CA','CO','CT','DE','DC','FM',
           'FL','GA','GU','HI','ID','IL','IN','IA','KS','KY','LA',

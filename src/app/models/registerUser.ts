@@ -1,3 +1,4 @@
+
 export class RegisterUser {
     userId: number;
     userName: string;
@@ -5,4 +6,5 @@ export class RegisterUser {
     password: string;
     token?: string;
     role: string;
+    
 }

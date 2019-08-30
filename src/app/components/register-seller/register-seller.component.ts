@@ -36,8 +36,7 @@ export class RegisterSellerComponent implements OnInit {
       confirmPassword: ['', Validators.required],
       bussinessNm: ['', Validators.required],
       address: this.formBuilder.group({
-        
-        addrLn1: ['', Validators.required],
+        addrLn1: ['', Validators.required], 
         addrLn2: '',
         cityNm: ['', Validators.required],
         stateCd:['', Validators.required],
@@ -71,7 +70,8 @@ MustMatch(controlName: string, matchingControlName: string) {
 
 
 // convenience getter for easy access to form fields
-get f() { return this.registerForm.controls; }
+//get f() { return this.registerForm.controls; }
+
 
   onSubmit() {
     this.submitted = true;

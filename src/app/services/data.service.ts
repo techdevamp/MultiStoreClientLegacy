@@ -9,6 +9,7 @@ import { InterceptorSkipHeader } from '../helpers/jwt.interceptor';
 import { RegisterSeller } from '../models/registerSeller';
 
 
+
 @Injectable({
   providedIn: 'root'
 })
