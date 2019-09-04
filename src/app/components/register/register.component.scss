@@ -1,0 +1,14 @@
+@import url('../login/login.component.scss');
+
+.register{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .error {
+    padding: 16px;
+    width: 300px;
+    color: white;
+    background-color: red;
+  }
+  

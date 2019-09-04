@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './guards';
 import { RegisterSellerComponent } from './components/register-seller/register-seller.component';
 import { SellMyGroceryComponent } from './components/sell-my-grocery/sell-my-grocery.component';
+import { RegisterUserComponent } from './components/register-user/register-user.component';
 
 const routes: Routes =
 [
@@ -17,6 +18,10 @@ const routes: Routes =
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'register-user',
+    component:  RegisterUserComponent
   },
   {
     path: 'register-seller',

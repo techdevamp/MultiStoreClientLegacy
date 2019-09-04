@@ -1,6 +1,6 @@
 import { RegisterUser } from './registerUser';
 
-export class RegisterSeller extends RegisterUser
+export class Address extends RegisterUser
  {
     bussinessNm: String;
     addrLn1: string;

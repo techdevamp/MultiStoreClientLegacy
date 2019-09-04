@@ -17,10 +17,10 @@ import { AlertModule } from '../alert/alert.module';
 
 @NgModule({
   declarations: [
-    RegisterUserComponent,
     ListUserComponent,
     EditUserComponent,
-    UserDetailsComponent,
+    UserDetailsComponent
+    
   ],
   imports: [
     CommonModule,

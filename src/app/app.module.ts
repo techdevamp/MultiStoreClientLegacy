@@ -20,15 +20,19 @@ import { SearchComponent } from './components/search/search.component';
 import { RegisterSellerComponent } from './components/register-seller/register-seller.component';
 import { SellMyGroceryComponent } from './components/sell-my-grocery/sell-my-grocery.component';
 import { AddressComponent } from './components/address/address.component';
+import { RegisterComponent } from './components/register/register.component';
+import { RegisterUserComponent } from './components/register-user/register-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SearchComponent,
+    RegisterUserComponent,
     RegisterSellerComponent,
     SellMyGroceryComponent,
-    AddressComponent
+    AddressComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
