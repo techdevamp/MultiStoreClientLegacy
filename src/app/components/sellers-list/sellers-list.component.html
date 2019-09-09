@@ -1,0 +1,53 @@
+<section class="flex-container" fxLayout="column" fxLayoutAlign="center"
+fxLayoutGap.xs="0" fxFlex="100%" >
+<h2 class="text-center">
+    List of Sellers
+  </h2>
+<div class="example-header" fxLayout="row">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+    </mat-form-field>
+</div>
+    <!-- this flex item takes the rest of the screen in height -->
+<div>
+          <mat-table [dataSource]="dataSourceItems"
+          matSort matSortActive="userName" matSortDirection="asc" matSortDisableClear >
+            <ng-container matColumnDef="userName">
+              <mat-header-cell *matHeaderCellDef mat-sort-header>User Name</mat-header-cell>
+                <mat-cell *matCellDef="let seller">
+                    <a   >{{seller.userName}}</a>
+                    </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="businessNm">
+              <mat-header-cell *matHeaderCellDef>Seller Name</mat-header-cell>
+              <mat-cell *matCellDef="let seller">{{seller.bussinessNm}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="email">
+              <mat-header-cell *matHeaderCellDef>Email</mat-header-cell>
+              <mat-cell *matCellDef="let seller">{{seller.email}}</mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="approvedInd">
+              <mat-header-cell *matHeaderCellDef>Account Status</mat-header-cell>
+              <mat-cell *matCellDef="let seller">
+              <a *ngIf="seller.approvedInd; else elseBlock" (click)="approveSeller(seller.id)" >
+                UnApprove
+             </a>
+             <ng-template #elseBlock><a (click)="approveSeller(seller.id)" >
+                 Approve
+              </a></ng-template>
+            </mat-cell>
+            </ng-container>
+            <ng-container matColumnDef="approvedBy">
+              <mat-header-cell *matHeaderCellDef>Approved By</mat-header-cell>
+              <mat-cell *matCellDef="let seller">{{seller.approvedBy}}</mat-cell>
+            </ng-container>
+            <mat-header-row *matHeaderRowDef="displayedColumnsItems"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumnsItems"></mat-row>
+          </mat-table>
+          <mat-paginator #paginator
+            [pageSize]="10"
+            [pageSizeOptions]="[5, 10, 20]">
+            </mat-paginator>
+        </div>
+        </section>
+

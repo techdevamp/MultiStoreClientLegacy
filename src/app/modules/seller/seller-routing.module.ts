@@ -9,6 +9,7 @@ import { DisplayItemDetailsComponent } from 'src/app/components/display-item-det
 import { SubscriptionsComponent } from 'src/app/components/subscriptions/subscriptions.component';
 import { ItemDealsLinkComponent } from 'src/app/components/item-deals-link/item-deals-link.component';
 import { ItemDealsLinkDetailComponent } from 'src/app/components/item-deals-link-detail/item-deals-link-detail.component';
+import { SellersListComponent } from 'src/app/components/sellers-list/sellers-list.component';
 
 const routes: Routes = [
   {
@@ -54,6 +55,11 @@ const routes: Routes = [
       outlet: 'sidemenu',
       component: AdBannerManagerComponent
     },
+    {
+      path: 'sellers-list/:id',
+      outlet: 'sidemenu',
+      component: SellersListComponent
+    }
   ]
   }
 ];

@@ -10,6 +10,7 @@ const routes: Routes = [
   path: 'register',
   component:  RegisterUserComponent
 },*/
+
 {
   path: 'list-user',
   component: ListUserComponent

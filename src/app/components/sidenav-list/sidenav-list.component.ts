@@ -1,5 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { RegisterUser } from 'src/app/models/registerUser';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { Roles } from 'src/app/models/roles';
 
 @Component({
   selector: 'app-sidenav-list',
@@ -8,8 +11,11 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class SidenavListComponent implements OnInit {
   @Output() sidenavClose = new EventEmitter();
-  constructor(private router: Router, private route: ActivatedRoute) {
-
+  currentUser: RegisterUser;
+  
+  constructor(private router: Router, private route: ActivatedRoute,private authenticationService: AuthenticationService) {
+    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+      
   }
   navigate(path: any, id: any) {
     this.router.navigate([{outlets: {sidemenu: [path, id]}}],
@@ -20,4 +26,12 @@ export class SidenavListComponent implements OnInit {
   public onSidenavClose = () => {
     this.sidenavClose.emit();
   }
+
+  get isAdmin() {
+    return this.currentUser && this.currentUser.role === Roles.Admin;
+  }
+  get isSeller() {
+    return this.currentUser && this.currentUser.role === Roles.Seller;
+  }
+
 }

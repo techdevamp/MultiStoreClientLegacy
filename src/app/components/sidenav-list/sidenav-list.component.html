@@ -1,6 +1,11 @@
 <div class="Jumbotron">
   <mat-drawer-container class="sidenav-container">
     <mat-drawer #sideNav mode="side" opened="true" class="sidenav adminSideNavBG">
+      <li *ngIf='isAdmin'>
+      <mat-divider><hr></mat-divider>
+      <a mat-list-item (click)="navigate('sellers-list','')" class="sideNavItems adminSideNavBG">List of Sellers</a>
+      </li>
+      <li *ngIf='isSeller'>
       <mat-divider><hr></mat-divider>
       <a mat-list-item (click)="navigate('upload-file','items')" class="sideNavItems adminSideNavBG">Upload Items File</a>
       <mat-divider><hr></mat-divider>
@@ -16,6 +21,7 @@
       <mat-divider><hr></mat-divider>
       <a mat-list-item (click)="navigate('addBannerManager','')" class="sideNavItems adminSideNavBG">Ad Banner Manager</a>
       <mat-divider><hr></mat-divider>
+      </li>
     </mat-drawer>
     <mat-drawer-content>
       <div><alert></alert></div>
