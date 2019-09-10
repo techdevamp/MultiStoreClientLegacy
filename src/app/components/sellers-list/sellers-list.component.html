@@ -15,7 +15,7 @@ fxLayoutGap.xs="0" fxFlex="100%" >
             <ng-container matColumnDef="userName">
               <mat-header-cell *matHeaderCellDef mat-sort-header>User Name</mat-header-cell>
                 <mat-cell *matCellDef="let seller">
-                    <a   >{{seller.userName}}</a>
+                   {{seller.userName}}
                     </mat-cell>
             </ng-container>
             <ng-container matColumnDef="businessNm">
@@ -27,7 +27,7 @@ fxLayoutGap.xs="0" fxFlex="100%" >
               <mat-cell *matCellDef="let seller">{{seller.email}}</mat-cell>
             </ng-container>
             <ng-container matColumnDef="approvedInd">
-              <mat-header-cell *matHeaderCellDef>Account Status</mat-header-cell>
+              <mat-header-cell *matHeaderCellDef>Update Account Status</mat-header-cell>
               <mat-cell *matCellDef="let seller">
               <a *ngIf="seller.approvedInd; else elseBlock" (click)="approveSeller(seller.id)" >
                 UnApprove
