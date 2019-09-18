@@ -54,11 +54,6 @@ const routes: Routes = [
       path: 'addBannerManager/:id',
       outlet: 'sidemenu',
       component: AdBannerManagerComponent
-    },
-    {
-      path: 'sellers-list/:id',
-      outlet: 'sidemenu',
-      component: SellersListComponent
     }
   ]
   }

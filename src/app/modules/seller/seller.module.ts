@@ -19,7 +19,6 @@ import { EditItemDetailsComponent } from 'src/app/components/edit-item-details/e
 import { AdBannerManagerComponent } from 'src/app/components/ad-banner-manager/ad-banner-manager.component';
 // search module
 import { FilterPipe } from 'src/app/filter.pipe';
-import { SellersListComponent } from 'src/app/components/sellers-list/sellers-list.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +31,6 @@ import { SellersListComponent } from 'src/app/components/sellers-list/sellers-li
     EditItemDetailsComponent,
     ImageManagerComponent,
     AdBannerManagerComponent,
-    SellersListComponent,
     FilterPipe
   ],
   imports: [

@@ -33,6 +33,7 @@ import { RegisterUserComponent } from './components/register-user/register-user.
     SellMyGroceryComponent,
     AddressComponent,
     RegisterComponent
+    
   ],
   imports: [
     BrowserModule,

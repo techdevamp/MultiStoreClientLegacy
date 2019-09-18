@@ -53,6 +53,13 @@ export class AppComponent {
       if (!this.currentUser) {
         this.logout();
       }
-      this.router.navigate(['seller/side-nav-list']);
+      if (this.currentUser.role  === Roles.Seller ) {
+        this.router.navigate(['seller/side-nav-list']);
+       } else if (this.currentUser.role  === Roles.Admin) {
+        this.router.navigate(['admin/side-nav-list']);
+       } 
+       else {
+        this.router.navigate(['buyer/home']);
+       }
     }
 }

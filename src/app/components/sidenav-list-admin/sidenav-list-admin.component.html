@@ -1,0 +1,14 @@
+<div class="Jumbotron">
+  <mat-drawer-container class="sidenav-container">
+    <mat-drawer #sideNav mode="side" opened="true" class="sidenav adminSideNavBG">
+      <mat-divider><hr></mat-divider>
+      <a mat-list-item (click)="navigate('sellers-list','')" class="sideNavItems adminSideNavBG">List of Sellers</a>
+       </mat-drawer>
+    <mat-drawer-content>
+      <div><alert></alert></div>
+      <div>
+        <router-outlet name="sidemenu"></router-outlet>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</div>

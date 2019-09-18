@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { AuthenticationRoutingModule } from './authentication-routing.module';
-import { RegisterUserComponent } from 'src/app/components/register-user/register-user.component';
 import { ListUserComponent } from 'src/app/components/list-user/list-user.component';
 import { EditUserComponent } from 'src/app/components/edit-user/edit-user.component';
 import { UserDetailsComponent } from 'src/app/components/user-details/user-details.component';
@@ -14,12 +13,16 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SwiperModule } from 'ngx-swiper-wrapper';
 import { AlertModule } from '../alert/alert.module';
+import { SellersListComponent } from 'src/app/components/sellers-list/sellers-list.component';
+import { SidenavListAdminComponent } from 'src/app/components/sidenav-list-admin/sidenav-list-admin.component';
 
 @NgModule({
   declarations: [
     ListUserComponent,
     EditUserComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    SellersListComponent,
+    SidenavListAdminComponent
     
   ],
   imports: [
