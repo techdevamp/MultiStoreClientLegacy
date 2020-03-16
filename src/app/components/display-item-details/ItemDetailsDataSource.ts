@@ -1,4 +1,4 @@
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource } from '@angular/material/table';
 import { ItemDetails } from 'src/app/models/item.details';
 import { first } from 'rxjs/operators';
 import { SellerService } from 'src/app/services/seller.service';

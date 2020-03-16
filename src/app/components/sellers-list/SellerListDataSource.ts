@@ -1,4 +1,4 @@
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource } from '@angular/material/table';
 import { Deals } from 'src/app/models/deals';
 import { AlertService } from 'src/app/services';
 import { DataAdminService } from 'src/app/services/data.admin.service';

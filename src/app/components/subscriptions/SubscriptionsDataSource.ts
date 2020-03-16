@@ -1,7 +1,7 @@
 import { AlertService } from './../../services/alert.service';
 import { SubscriptionsData } from '../../models/subscription.data';
 import { first } from 'rxjs/operators';
-import { MatTableDataSource } from '@angular/material';
+import { MatTableDataSource } from '@angular/material/table';
 import { SellerService } from 'src/app/services/seller.service';
 
 export class SubscriptionsDataSource extends MatTableDataSource<SubscriptionsData> {

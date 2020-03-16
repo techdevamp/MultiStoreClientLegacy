@@ -1,7 +1,8 @@
 import { ItemDealsLinkDetailDataSource } from './ItemDealsLinkDetailDataSource';
 import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MatPaginator, MatSort } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { SelectionModel } from '@angular/cdk/collections';
 import { ItemDealDetails } from 'src/app/models/item.deal.details';
 import { DataDealCouponService } from 'src/app/services/data.deal.coupon.service';

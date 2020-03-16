@@ -5,10 +5,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCardModule, MatListModule, MatToolbarModule,MatSelectModule
-  , MatInputModule, MatPaginatorModule, MatProgressSpinnerModule,
-  MatSortModule, MatTableModule, MatSidenavModule, MatIconModule, MatMenuModule,
-  MatDialogModule, MatCheckboxModule, MatGridListModule, MatAutocompleteModule} from '@angular/material';
+import { MatButtonModule } from '@angular/material/button'
+import { MatCardModule } from '@angular/material/card'
+import { MatListModule } from '@angular/material/list'
+import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatInputModule } from '@angular/material/input'
+import { MatTableModule } from '@angular/material/table'
+import { MatPaginatorModule } from '@angular/material/paginator'
+import { MatSortModule } from '@angular/material/sort'
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
+import { MatSidenavModule } from '@angular/material/sidenav'
+import { MatIconModule } from '@angular/material/icon'
+import { MatDialogModule } from '@angular/material/dialog'
+import { MatMenuModule } from '@angular/material/menu'
+import { MatCheckboxModule } from '@angular/material/checkbox'
+import { MatGridListModule } from '@angular/material/grid-list'
+import { MatSelectModule } from '@angular/material/select'
+import { MatAutocompleteModule } from '@angular/material/autocomplete'
 import { JwtInterceptor, ErrorInterceptor } from './helpers';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { CommonModule } from '@angular/common';

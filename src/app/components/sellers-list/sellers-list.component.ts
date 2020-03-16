@@ -2,7 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { DataAdminService } from 'src/app/services/data.admin.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertService } from 'src/app/services';
-import { MatPaginator, MatSort } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { SellerListDataSource } from './SellerListDataSource';
 
 @Component({

@@ -6,9 +6,21 @@ import { ListUserComponent } from 'src/app/components/list-user/list-user.compon
 import { EditUserComponent } from 'src/app/components/edit-user/edit-user.component';
 import { UserDetailsComponent } from 'src/app/components/user-details/user-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule, MatCardModule, MatListModule, MatToolbarModule, MatInputModule
-  , MatTableModule, MatPaginatorModule, MatSortModule, MatProgressSpinnerModule, MatSidenavModule
-  , MatIconModule, MatDialogModule, MatMenuModule, MatCheckboxModule, MatGridListModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button'
+import { MatCardModule } from '@angular/material/card'
+import { MatListModule } from '@angular/material/list'
+import { MatToolbarModule } from '@angular/material/toolbar'
+import { MatInputModule } from '@angular/material/input'
+import { MatTableModule } from '@angular/material/table'
+import { MatPaginatorModule } from '@angular/material/paginator'
+import { MatSortModule } from '@angular/material/sort'
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
+import { MatSidenavModule } from '@angular/material/sidenav'
+import { MatIconModule } from '@angular/material/icon'
+import { MatDialogModule } from '@angular/material/dialog'
+import { MatMenuModule } from '@angular/material/menu'
+import { MatCheckboxModule } from '@angular/material/checkbox'
+import { MatGridListModule } from '@angular/material/grid-list'
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SwiperModule } from 'ngx-swiper-wrapper';
