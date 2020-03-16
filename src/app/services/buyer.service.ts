@@ -38,7 +38,8 @@ export class BuyerService {
 
 
   subscribeEmail(subscriptionsData: SubscriptionsData): Observable<ApiResponse> {
-    return this.http.post<ApiResponse>(this.baseUrl + '/readData/subscribe' , subscriptionsData);
+    const headers = new HttpHeaders().set(InterceptorSkipHeader, '');
+    return this.http.post<ApiResponse>(this.baseUrl + '/readData/subscribe' , subscriptionsData,{headers});
   }
 
   getImageByImageType(imageType: string): Observable<ApiResponse> {
@@ -51,7 +52,7 @@ export class BuyerService {
     const headers = new HttpHeaders().set(InterceptorSkipHeader, '');
     const params = new HttpParams().set('imageType', imageType);
     params.append('activeInd', activeInd);
-    return this.http.get<ApiResponse>(this.baseUrl + '/readData/getImageByImageType', { headers, params});
+    return this.http.get<ApiResponse>(`$this.baseUrl`.concat(`$/readData/getImageByImageType`), { headers, params});
   }
 
   searchItemByItemName(itemName: string): Observable<ApiResponse> {
