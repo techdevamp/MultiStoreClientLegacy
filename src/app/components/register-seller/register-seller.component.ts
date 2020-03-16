@@ -35,6 +35,9 @@ export class RegisterSellerComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', Validators.required],
       bussinessNm: ['', Validators.required],
+      firstName: ['', Validators.required],
+      middleName: '',
+      lastName: ['', Validators.required],
       address: this.formBuilder.group({
         addrLn1: ['', Validators.required], 
         addrLn2: '',
