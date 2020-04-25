@@ -70,11 +70,10 @@ export class LoginComponent implements OnInit {
                     this.dataTransferService.setApiResponse(data);
                   //  this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
                     if (data.result.role === Roles.Seller ) {
-                    this.router.navigate(['seller/side-nav-list']);
+                    this.router.navigate(['seller/side-nav-list'], {skipLocationChange: true});
                    } else if (data.result.role === Roles.Admin) {
-                    this.router.navigate(['admin/side-nav-list']);
-                   } 
-                   else {
+                    this.router.navigate(['admin/side-nav-list'], {skipLocationChange: true});
+                   } else {
                     this.router.navigate(['buyer/home']);
                    }
 

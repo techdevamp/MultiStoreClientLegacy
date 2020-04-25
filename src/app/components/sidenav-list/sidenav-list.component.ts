@@ -12,14 +12,14 @@ import { Roles } from 'src/app/models/roles';
 export class SidenavListComponent implements OnInit {
   @Output() sidenavClose = new EventEmitter();
   currentUser: RegisterUser;
-  
-  constructor(private router: Router, private route: ActivatedRoute,private authenticationService: AuthenticationService) {
+
+  constructor(private router: Router, private route: ActivatedRoute, private authenticationService: AuthenticationService) {
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
-      
+
   }
   navigate(path: any, id: any) {
     this.router.navigate([{outlets: {sidemenu: [path, id]}}],
-                            {relativeTo: this.route});
+                            {relativeTo: this.route, skipLocationChange: true});
   }
   ngOnInit() {
   }
