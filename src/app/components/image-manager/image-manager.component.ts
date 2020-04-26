@@ -56,7 +56,7 @@ export class ImageManagerComponent implements OnInit {
     this.alertService.success(res.message, false);
 
     this.router.navigate([{outlets: {sidemenu: ['imageManager', '' ] }}],
-            {relativeTo: this.route.parent});
+            {relativeTo: this.route.parent, skipLocationChange: true});
     },
     error => this.alertService.error(error));
   }

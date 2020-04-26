@@ -52,7 +52,7 @@ export class DisplayItemDetailsComponent implements OnInit, AfterViewInit {
     apiResponse.result = itemDetails;
     this.dataTransferService.setApiResponse(apiResponse);
     this.router.navigate([{outlets: {sidemenu: ['edit-item-details']}}],
-      {relativeTo: this.route.parent});
+      {relativeTo: this.route.parent, skipLocationChange: true});
   }
 
   deleteItem(itemId: number) {

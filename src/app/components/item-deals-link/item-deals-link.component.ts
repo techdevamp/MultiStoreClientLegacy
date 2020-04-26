@@ -37,7 +37,7 @@ displayItemDetails: string;
      }
      public getItemDetails(): void {
       this.router.navigate([{outlets: {sidemenu: [this.displayItemDetails]}}],
-        {relativeTo: this.route.parent});
+        {relativeTo: this.route.parent, skipLocationChange: true});
     }
 
 

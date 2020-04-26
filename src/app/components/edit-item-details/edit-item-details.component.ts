@@ -19,6 +19,8 @@ export class EditItemDetailsComponent implements OnInit {
   productItemNm: string;
   imagesName: string[];
   imgExists: string;
+  imageList: string[];
+  selectedValue: string;
   constructor(private formBuilder: FormBuilder
             , private router: Router
             , private sellerService: SellerService
@@ -42,11 +44,18 @@ export class EditItemDetailsComponent implements OnInit {
       imageName: ['']
     });
     this.editItemDetailsForm.setValue(this.dataTransferService.getApiResponse().result);
-    this.imagesName = this.editItemDetailsForm.controls.imageName.value;
-    this.productItemNm = this.imagesName[0];
-    this.imgUrl = AppConstants.imageURL.concat(this.productItemNm);
+    this.initEditView();
   }
 
+  initEditView() {
+    this.imagesName = this.editItemDetailsForm.controls.imageName.value;
+    this.productItemNm = this.imagesName[0];
+    this.imgUrl = AppConstants.imageURL;
+    this.imgExists = AppConstants.imageURL;
+    this.sellerService.getAllImages().subscribe(res => {this.imageList = res.result; }
+      , error => this.alertService.error(error)
+    );
+  }
   dataURItoBlob(dataURI: string) {
     const byteString = window.atob(dataURI);
     const arrayBuffer = new ArrayBuffer(byteString.length);
@@ -69,7 +78,7 @@ export class EditItemDetailsComponent implements OnInit {
   onImageClick(imageFile: any) {
       this.fileToUpload = imageFile.target.files.item(0);
       this.createImageFromBlob(this.fileToUpload);
-      this.imgExists = AppConstants.imageURL.concat(this.fileToUpload.name);
+      // this.imgExists = AppConstants.imageURL.concat(this.fileToUpload.name);
   }
 
   onUpload() {
@@ -80,16 +89,21 @@ export class EditItemDetailsComponent implements OnInit {
     this.alertService.success(res.message, false);
     this.imgExists = null;
     this.router.navigate([{outlets: {sidemenu: ['edit-item-details']}}],
-            {relativeTo: this.route.parent});
+            {relativeTo: this.route.parent, skipLocationChange: true});
     },
     error => this.alertService.error(error));
   }
 
+  selectionChange() {
+    this.editItemDetailsForm.controls.imageName.setValue(this.productItemNm);
+  }
   onSubmit() {
     let imagesNames: string;
+    let imagesNamesArr = [];
     let editItemDetails: ItemDetails;
     imagesNames = this.editItemDetailsForm.controls.imageName.value;
-    this.imagesName = imagesNames.indexOf(',') > 0 ? imagesNames.split(',') : this.imagesName;
+    imagesNamesArr.push(imagesNames);
+    this.imagesName = imagesNames.indexOf(',') > 0 ? imagesNames.split(',') : imagesNamesArr;
     editItemDetails = this.editItemDetailsForm.value;
     editItemDetails.imageName = this.imagesName;
     this.sellerService.editItem(editItemDetails)
@@ -99,8 +113,7 @@ export class EditItemDetailsComponent implements OnInit {
             this.alertService.success(res.message, false),
             this.editItemDetailsForm.setValue(res.result);
             this.imgExists = null;
-            this.router.navigate([{outlets: {sidemenu: ['edit-item-details']}}],
-                                  {relativeTo: this.route.parent});
+            this.initEditView();
           } else {
             this.alertService.success(res.message, false);
           }

@@ -60,7 +60,7 @@ export class UploadFileComponent implements OnInit, OnDestroy {
 
   public getItemDetails(fileId: any): void {
     this.router.navigate([{outlets: {sidemenu: [this.displayDetails, fileId]}}],
-      {relativeTo: this.route.parent});
+      {relativeTo: this.route.parent, skipLocationChange: true});
   }
   ngOnDestroy() {
    this.uploadType = null;
