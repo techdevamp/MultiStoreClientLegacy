@@ -4,7 +4,6 @@ import { BuyerService } from 'src/app/services/buyer.service';
 import { ItemDetails } from 'src/app/models/item.details';
 import { DataTransferService, AlertService } from 'src/app/services';
 import { BehaviorSubject } from 'rxjs';
-import { ApiResponse } from 'src/app/models/api.response';
 import { AppConstants } from 'src/app/constants/AppConstants';
 import {debounceTime, distinctUntilChanged, switchMap} from 'rxjs/operators';
 
@@ -20,7 +19,7 @@ export class SearchComponent implements OnInit {
               private alertService: AlertService) { }
   itemDetails: BehaviorSubject<ItemDetails[]>;
   results: ItemDetails[];
-  selectedItems: ItemDetails[] = [];
+  selectedItems: ItemDetails[];
   queryField: FormControl = new FormControl();
   imgUrl = AppConstants.imageURL;
   displayList: boolean;
@@ -30,6 +29,7 @@ export class SearchComponent implements OnInit {
 
   onBlur() {
       this.displayList = false;
+      this.queryField.setValue('');
   }
 
   onFocus() {
@@ -37,12 +37,12 @@ export class SearchComponent implements OnInit {
   }
 
   searchItem() {
-    if (this.queryField.value === '') {
+    if (!this.queryField || this.queryField.value === '') {
       this.displayList = false;
       this.results = null;
     }
     this.queryField.valueChanges.pipe(
-    debounceTime(200)
+      debounceTime(200)
     , distinctUntilChanged()
     , switchMap((query) =>
              this.buyerService.searchItemByItemName(query)))
@@ -64,12 +64,13 @@ export class SearchComponent implements OnInit {
   }
 
   searchResults(itemDetail: any) {
+    this.selectedItems = [];
     this.selectedItems.push(itemDetail);
     this.itemDetails = this.dataTransferService.getItemDetails();
     this.itemDetails.next(this.selectedItems);
     this.dataTransferService.setItemDetails(this.itemDetails);
     this.displayList = false;
-    this.queryField.setValue('');
+    // this.queryField.setValue('');
     this.itemDetails = null;
     this.results = null;
   }
@@ -79,7 +80,7 @@ export class SearchComponent implements OnInit {
     this.itemDetails.next(this.results);
     this.dataTransferService.setItemDetails(this.itemDetails);
     this.displayList = false;
-    this.queryField.setValue('');
+    // this.queryField.setValue('');
     this.itemDetails = null;
     this.results = null;
   }
