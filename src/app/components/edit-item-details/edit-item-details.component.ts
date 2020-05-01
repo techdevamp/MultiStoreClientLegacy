@@ -95,31 +95,29 @@ export class EditItemDetailsComponent implements OnInit {
   }
 
   selectionChange() {
-    this.editItemDetailsForm.controls.imageName.setValue(this.productItemNm);
+    this.editItemDetailsForm.controls.imageName.setValue([this.productItemNm]);
   }
   onSubmit() {
-    let imagesNames: string;
-    let imagesNamesArr = [];
-    let editItemDetails: ItemDetails;
-    imagesNames = this.editItemDetailsForm.controls.imageName.value;
-    imagesNamesArr.push(imagesNames);
-    this.imagesName = imagesNames.indexOf(',') > 0 ? imagesNames.split(',') : imagesNamesArr;
-    editItemDetails = this.editItemDetailsForm.value;
-    editItemDetails.imageName = this.imagesName;
-    this.sellerService.editItem(editItemDetails)
-      .subscribe(
-        res => {
-          if (res.status === 200) {
-            this.alertService.success(res.message, false),
-            this.editItemDetailsForm.setValue(res.result);
-            this.imgExists = null;
-            this.initEditView();
-          } else {
-            this.alertService.success(res.message, false);
-          }
-        },
-        error => {
-          this.alertService.error(error);
-        });
+    const editItemDetails = this.editItemDetailsForm.value;
+
+    const imagesNamesForm = this.editItemDetailsForm.controls.imageName.value;
+    this.imagesName = imagesNamesForm.indexOf(',') > 0 ? imagesNamesForm.split(',') : [];
+
+    if (imagesNamesForm === '' || this.imagesName.length > 0) {
+      editItemDetails.imageName = this.imagesName;
+    }
+
+    this.sellerService
+      .editItem(editItemDetails).subscribe(res => {
+                          if (res.status === 200) {
+                            this.alertService.success(res.message, false),
+                            this.editItemDetailsForm.setValue(res.result);
+                            this.imgExists = null;
+                            this.initEditView();
+                          }
+                        },
+                      error => {
+                        this.alertService.error(error);
+                      });
   }
 }
