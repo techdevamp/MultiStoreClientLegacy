@@ -23,7 +23,7 @@
                 <button mat-button (click)="home('buyer/home')"><mat-icon>home</mat-icon>Home</button>
               </span>
             </li>
-            <li>
+            <li *ngIf='isAdmin'>
               <span class="label">
                 <button mat-button (click)="sellMyGrocery('sell-my-grocery')"><mat-icon>label</mat-icon>Sell My Grocery</button>
               </span>

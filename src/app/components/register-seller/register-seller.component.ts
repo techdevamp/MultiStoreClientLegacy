@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { RegisterUserComponent } from '../register-user/register-user.component';
 import { HttpErrorResponse } from '@angular/common/http';
 import { RegisterSeller } from 'src/app/models/registerSeller';
+import { Roles } from 'src/app/models/roles';
 
 @Component({
   selector: 'app-register-seller',
@@ -23,7 +24,7 @@ export class RegisterSellerComponent implements OnInit {
               private authenticationService: AuthenticationService,
               private alertService: AlertService) {
        // redirect to home if already logged in
-       if (this.authenticationService.currentUserValue) {
+       if (this.authenticationService.currentUserValue && this.authenticationService.currentUserValue.role !== Roles.Admin) {
           this.router.navigate(['/']);
         }
     }

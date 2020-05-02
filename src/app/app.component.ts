@@ -48,6 +48,9 @@ export class AppComponent {
     get isSeller() {
       return this.currentUser && (this.currentUser.role === Roles.Seller || this.currentUser.role === Roles.Admin);
     }
+    get isAdmin() {
+      return this.currentUser && this.currentUser.role === Roles.Admin;
+    }
 
     adminScreen() {
       if (!this.currentUser) {
